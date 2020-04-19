@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { ScrollView, Text, View, StyleSheet } from "react-native"
-import AnnouncementCart from '../../components/molecules/AnnouncementCart'
+import { StyleSheet, Text, View } from "react-native";
+
+import AnnouncementCart from '../../components/molecules/AnnouncementCart';
 
 class AnnouncementList extends Component {
     render(){
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     sortInfo: {
         alignSelf: 'center',
         fontSize: 19,
-        marginTop: 12,
+        marginTop: 15,
         color: '#ACACAC',
         marginBottom: 6
     }

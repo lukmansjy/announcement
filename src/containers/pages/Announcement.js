@@ -1,9 +1,45 @@
 import React, { Component } from "react";
-import { ScrollView, Text, View, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+
+import BtnSort from "../../components/atoms/BtnSort";
 import Header from "../../components/molecules/Header";
+import MenuSort from "../../components/molecules/MenuSort";
 import AnnouncementList from "../organisms/AnnouncementList";
 
 class Announcement extends Component {
+    constructor(){
+        super()
+        this.state = {
+            scrollDirection: 'down',
+            showSort: false
+        }
+    }
+
+    countScoll = 0 // to handel setState scrollDirection
+    onScroll = event => {
+        var currentOffset = event.nativeEvent.contentOffset.y
+        var direction = currentOffset > this.offset ? 'down' : 'up'
+        this.offset = currentOffset
+
+        if(direction !== this.state.scrollDirection){
+            this.countScoll ++
+            console.log(this.countScoll)
+            if(this.countScoll === 7){
+                this.setState({
+                    scrollDirection: direction
+                })
+            }
+        }else{
+            this.countScoll = 0
+        }
+    }
+
+    handleShowSort = ()=>{
+        this.setState({
+            showSort: !this.state.showSort
+        })
+    }
+
     render(){
         return(
             <View style={styles.screen}>
@@ -11,10 +47,17 @@ class Announcement extends Component {
                     <Header/>
                 </View>
                 <View style={styles.contentWrapper}>
-                    <ScrollView>
+                    <ScrollView onScroll={this.onScroll}>
                         <AnnouncementList/>
                     </ScrollView>
+
+                    {this.state.showSort ? 
+                        <MenuSort onClose={this.handleShowSort}/>
+                    : null }
                 </View>
+                {this.state.scrollDirection === 'down' && !this.state.showSort ? 
+                    <BtnSort handleShowSort={this.handleShowSort}/> 
+                : null}
             </View>
         )
     }
@@ -29,9 +72,9 @@ const styles = StyleSheet.create({
     },
     headerWrapper: {
         flex: 1,
-        backgroundColor: 'red'
+        backgroundColor: 'red',
     },
     contentWrapper: {
         flex: 9,
     }
-  });
+});

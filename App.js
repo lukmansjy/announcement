@@ -12,13 +12,6 @@ import Announcement from './src/containers/pages/Announcement';
 
 
 class App extends Component{
-  constructor(){
-    super()
-    this.state = {
-      numberInput: null
-    }
-  }
-  
   render(){
     return(
       // <View>

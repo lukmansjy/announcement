@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react'
-import { View, Text, StyleSheet, Image, TouchableHighlight, TouchableOpacity } from 'react-native'
+import React, { Fragment } from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
 const AnnouncementDetail = (props)=>{
     return(
@@ -17,7 +17,7 @@ export default AnnouncementDetail
 const styles = StyleSheet.create({
     wrapDetail: {
         flexDirection: 'row',
-        marginBottom: 11
+        marginBottom: 12
     },
     iconDetail: {
         width: 18,
