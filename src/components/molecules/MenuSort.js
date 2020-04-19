@@ -12,7 +12,7 @@ const MenuSort = (props)=>{
             </View>
             <View style={styles.sortMenu}>
                 <OptionHeader title="Urutkan" onClose={props.onClose}/>
-                <OptionItem name="Terbagi dibagikan" active={false}/>
+                <OptionItem name="Terbaru dibagikan" active={false}/>
                 <OptionItem name="Tanggal kegiatan terdekat" active={true}/>
                 <OptionItem name="Belum dibaca" active={false}/>
             </View>

@@ -6,6 +6,8 @@ import Header from "../../components/molecules/Header";
 import MenuSort from "../../components/molecules/MenuSort";
 import AnnouncementList from "../organisms/AnnouncementList";
 
+import data from '../../assets/data/db.json'
+
 class Announcement extends Component {
     constructor(){
         super()
@@ -23,7 +25,6 @@ class Announcement extends Component {
 
         if(direction !== this.state.scrollDirection){
             this.countScoll ++
-            console.log(this.countScoll)
             if(this.countScoll === 7){
                 this.setState({
                     scrollDirection: direction
@@ -47,9 +48,9 @@ class Announcement extends Component {
                     <Header/>
                 </View>
                 <View style={styles.contentWrapper}>
-                    <ScrollView onScroll={this.onScroll}>
-                        <AnnouncementList/>
-                    </ScrollView>
+                    {/* <ScrollView onScroll={this.onScroll}> */}
+                        <AnnouncementList data={data} onScroll={this.onScroll}/>
+                    {/* </ScrollView> */}
 
                     {this.state.showSort ? 
                         <MenuSort onClose={this.handleShowSort}/>

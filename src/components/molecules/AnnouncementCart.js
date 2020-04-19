@@ -1,37 +1,54 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { Fragment } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View, ShadowPropTypesIOS } from 'react-native'
 
 import AnnouncementDetail from './AnnouncementDetail'
 
-const AnnouncementCart = ()=>{
+import {toDateName, getHourStartEnd} from '../../utils'
+
+const AnnouncementCart = (props)=>{
+    const {title, userBy, school, startTime, endTime, come} = props.data
+
     return(
-        <View style={styles.container}>
-            <View style={styles.wrapperContent}>
-                <View style={styles.wrapTitle}>
-                    <Text style={styles.title}>Gladi Bersih Lomba Tari</Text>
-                    <View style={styles.new}></View>
-                </View>
-                <AnnouncementDetail title="Kevin Himawan" icon={require('../../assets/icons/person.png')}/>
-                <AnnouncementDetail title="TK Bintang Kecil Jakarta" icon={require('../../assets/icons/school.png')}/>
-                <View style={styles.time}>
-                    <View style={styles.row50}>
-                        <AnnouncementDetail title="20 Desember " icon={require('../../assets/icons/date.png')}/>
+        <Fragment>
+            {props.index === 0 ? 
+                <Text style={styles.sortInfo}>Urut berdasarkan "Terbaru dibagikan"</Text>
+            : null}
+            
+            <View style={styles.container}>
+                <View style={styles.wrapperContent}>
+                    <View style={styles.wrapTitle}>
+                        <Text style={styles.title}>{title}</Text>
+                        <View style={styles.new}></View>
                     </View>
-                    <View style={styles.row50}>
-                        <AnnouncementDetail title="09.00 - 10.00" icon={require('../../assets/icons/time.png')}/>
+                    <AnnouncementDetail title={userBy} icon={require('../../assets/icons/person.png')}/>
+                    <AnnouncementDetail title={school} icon={require('../../assets/icons/school.png')}/>
+                    <View style={styles.time}>
+                        <View style={styles.row50}>
+                            <AnnouncementDetail title={toDateName(startTime)} icon={require('../../assets/icons/date.png')}/>
+                        </View>
+                        <View style={styles.row50}>
+                            <AnnouncementDetail title={getHourStartEnd(startTime, endTime)} icon={require('../../assets/icons/time.png')}/>
+                        </View>
                     </View>
                 </View>
+                <TouchableOpacity style={styles.newAnc}>
+                    <Text style={styles.textConfrm}>{come.name}</Text>
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.newAnc}>
-                <Text style={styles.textConfrm}>Konfirmasi Kedatangan</Text>
-            </TouchableOpacity>
-        </View>
+        </Fragment>
     )
 }
 
 export default AnnouncementCart
 
 const styles = StyleSheet.create({
+        sortInfo: {
+            alignSelf: 'center',
+            fontSize: 19,
+            marginTop: 15,
+            color: '#ACACAC',
+            marginBottom: 6
+        },
         container: {
         shadowColor: "#000",
         shadowOffset: {

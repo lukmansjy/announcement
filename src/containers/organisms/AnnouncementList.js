@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 
 import AnnouncementCart from '../../components/molecules/AnnouncementCart';
 
@@ -7,13 +7,14 @@ class AnnouncementList extends Component {
     render(){
         return(
             <View>
-                <Text style={styles.sortInfo}>Urut berdasarkan "Terbaru dibagikan"</Text>
-                <AnnouncementCart/>
-                <AnnouncementCart/>
-                <AnnouncementCart/>
-                <AnnouncementCart/>
-                <AnnouncementCart/>
-                <AnnouncementCart/>
+                {/* <Text style={styles.sortInfo}>Urut berdasarkan "Terbaru dibagikan"</Text> */}
+                <FlatList 
+                    data={this.props.data}
+                    renderItem={
+                        ({item, index}) => <AnnouncementCart data={item} index={index} key={item.id}/>
+                    }
+                    onScroll={this.props.onScroll}
+                    keyExtractor= { (item, index) => index.toString() }/>
             </View>
         )
     }
