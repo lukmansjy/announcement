@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import BtnSort from "../../components/atoms/BtnSort";
 import Header from "../../components/molecules/Header";

@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, ShadowPropTypesIOS } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
 import AnnouncementDetail from './AnnouncementDetail'
 
 import {toDateName, getHourStartEnd} from '../../utils'
+import AnnouncementBottom from './AnnouncementBottom'
 
 const AnnouncementCart = (props)=>{
-    const {title, userBy, school, startTime, endTime, come} = props.data
+    const {title, userBy, school, startTime, endTime, come, read} = props.data
 
     return(
         <Fragment>
@@ -18,7 +19,9 @@ const AnnouncementCart = (props)=>{
                 <View style={styles.wrapperContent}>
                     <View style={styles.wrapTitle}>
                         <Text style={styles.title}>{title}</Text>
-                        <View style={styles.new}></View>
+
+                        {read ? <View style={styles.new}></View> : null}
+                        
                     </View>
                     <AnnouncementDetail title={userBy} icon={require('../../assets/icons/person.png')}/>
                     <AnnouncementDetail title={school} icon={require('../../assets/icons/school.png')}/>
@@ -31,9 +34,9 @@ const AnnouncementCart = (props)=>{
                         </View>
                     </View>
                 </View>
-                <TouchableOpacity style={styles.newAnc}>
-                    <Text style={styles.textConfrm}>{come.name}</Text>
-                </TouchableOpacity>
+
+                <AnnouncementBottom come={come} />
+                
             </View>
         </Fragment>
     )
@@ -42,14 +45,14 @@ const AnnouncementCart = (props)=>{
 export default AnnouncementCart
 
 const styles = StyleSheet.create({
-        sortInfo: {
-            alignSelf: 'center',
-            fontSize: 19,
-            marginTop: 15,
-            color: '#ACACAC',
-            marginBottom: 6
-        },
-        container: {
+    sortInfo: {
+        alignSelf: 'center',
+        fontSize: 19,
+        marginTop: 15,
+        color: '#ACACAC',
+        marginBottom: 6
+    },
+    container: {
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -90,18 +93,5 @@ const styles = StyleSheet.create({
     },
     row50: {
         flex: 1
-    },
-    newAnc: {
-        backgroundColor: '#5CC4FF',
-        padding: 12,
-        borderBottomLeftRadius: 15,
-        borderBottomRightRadius: 15,
-        marginHorizontal: 1,
-    },
-    textConfrm: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold',
-        textAlign: 'center'
     }
   });

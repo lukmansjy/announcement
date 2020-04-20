@@ -3,7 +3,7 @@
         "id": 1,
         "startTime": 1600394400000,
         "endTime": 1600401600000,
-        "read": false,
+        "read": true,
         "title": "Gladi Bersih Lomba Tari",
         "userBy": "Kevin Himawan",
         "school": "TK Bintang Kecil Jakarta" ,
@@ -16,7 +16,7 @@
         "id": 2,
         "startTime": 1599964200000,
         "endTime": 1599971400000,
-        "read": true,
+        "read": false,
         "title": "Lomba Kreatifitas Kertas",
         "userBy": "Lukman Sanjaya",
         "school": "TK Bintang Indah Tangerang",
@@ -29,7 +29,7 @@
         "id": 3,
         "startTime": 1600565400000,
         "endTime": 1600574400000,
-        "read": true,
+        "read": false,
         "title": "Berhitung Itu Mudah",
         "userBy": "Kevin Himawan",
         "school": "TK Cita Cita Bangsa",
@@ -42,13 +42,13 @@
         "id": 4,
         "startTime": 1599964200000,
         "endTime": 1599971400000,
-        "read": true,
+        "read": false,
         "title": "Lomba Kreatifitas Kertas",
         "userBy": "Lukman Sanjaya",
         "school": "TK Bintang Indah Tangerang",
         "come": {
-            "id": 2,
-            "name": "Mungkin Hadir"
+            "id": 4,
+            "name": "Tidak Hadir"
         }
     },
     {
@@ -60,8 +60,8 @@
         "userBy": "Kevin Himawan",
         "school": "TK Cita Cita Bangsa",
         "come": {
-            "id": 3,
-            "name": "Hadir"
+            "id": 1,
+            "name": "Konfirmasi Kedatangan"
         } 
     },
     {
@@ -73,15 +73,15 @@
         "userBy": "Lukman Sanjaya",
         "school": "TK Bintang Indah Tangerang",
         "come": {
-            "id": 1,
-            "name": "Konfirmasi Kedarangan"
+            "id": 4,
+            "name": "Tidak Hadir"
         }
     },
     {
         "id": 7,
         "startTime": 1600565400000,
         "endTime": 1600574400000,
-        "read": true,
+        "read": false,
         "title": "Berhitung Itu Mudah",
         "userBy": "Kevin Himawan",
         "school": "TK Cita Cita Bangsa",
